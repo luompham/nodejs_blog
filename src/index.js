@@ -3,11 +3,16 @@ const morgan = require('morgan');
 const { engine } = require('express-handlebars');
 const path = require('path');
 const app = express();
-const port = 3000;
 
 // maybe write: const route = require('./routes/index.js');
 // or if it is an index.js file, it will be loaded automatically
 const route = require('./routes');
+const db = require('./config/db');
+
+// Connect to DB
+db.connect();
+
+const port = 3000;
 
 // app.use(express.static('public'))
 app.use(express.static(path.join(__dirname, 'public')));
@@ -29,5 +34,5 @@ app.set('views', './src/resources/views');
 route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`App listening on port ${port}`);
 });

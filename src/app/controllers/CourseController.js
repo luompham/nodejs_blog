@@ -2,7 +2,7 @@ const Course = require('../models/Course');
 
 const { multipleMongooseToObject } = require('../../util/mongoose');
 
-class SiteController {
+class CourseController {
   //[GET]/
   index(req, res, next) {
     // Course.find({}, function (err, courses) {
@@ -29,4 +29,4 @@ class SiteController {
     res.render('search');
   }
 }
-module.exports = new SiteController();
+module.exports = new CourseController();
